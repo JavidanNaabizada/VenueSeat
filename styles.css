@@ -1,5 +1,5 @@
 
-/* General styles */
+
 
 * {
   box-sizing: border-box;
@@ -31,7 +31,7 @@ h1, h2, p {
   margin-top: 0;
 }
 
-/* Header */
+
 
 .site-header {
   background-color: #17243b;
@@ -76,7 +76,7 @@ h1, h2, p {
   color: #f0c36d;
 }
 
-/* Main layout */
+
 
 .main-layout {
   max-width: 1400px;
@@ -131,7 +131,6 @@ h1, h2, p {
   font-weight: bold;
 }
 
-/* Ticket price categories */
 
 .price-categories {
   display: flex;
@@ -170,7 +169,7 @@ h1, h2, p {
   background-color: #49ad80;
 }
 
-/* Map navigation */
+
 
 .map-toolbar {
   display: flex;
@@ -216,12 +215,12 @@ h1, h2, p {
   background-color: #365486;
 }
 
-/* Venue map */
+
 
 .venue-viewport {
   width: 100%;
   height: 500px;
-  overflow: hidden;
+  overflow: auto;
   background-color: #f8faff;
   border: 1px solid #dce4ef;
   border-radius: 10px;
@@ -307,13 +306,13 @@ h1, h2, p {
 }
 
 .seat.inspected {
-  background-color: #f59e0b;
-  color: #17243b;
-  outline: 2px solid #17243b;
+  background-color: #db2777;
+  color: white;
+  outline: 2px solid #831843;
 }
 
 .seat.in-cart {
-  background-color: #2563eb;
+  background-color: #7c3aed;
   color: white;
 }
 
@@ -330,7 +329,7 @@ h1, h2, p {
   letter-spacing: 2px;
 }
 
-/* Seat legend */
+
 
 .seat-legend {
   display: flex;
@@ -353,18 +352,18 @@ h1, h2, p {
 }
 
 .legend-dot.inspected {
-  background-color: #f59e0b;
+  background-color: #db2777;
 }
 
 .legend-dot.in-cart {
-  background-color: #2563eb;
+  background-color: #7c3aed;
 }
 
 .legend-dot.unavailable {
   background-color: #a1a8b3;
 }
 
-/* Sidebar */
+
 
 .sidebar {
   display: flex;
@@ -515,7 +514,6 @@ h1, h2, p {
   font-size: 11px;
 }
 
-/* Footer */
 
 .site-footer {
   text-align: center;
@@ -524,7 +522,6 @@ h1, h2, p {
   font-size: 12px;
 }
 
-/* Responsive layout */
 
 @media (min-width: 768px) {
   .map-toolbar {
