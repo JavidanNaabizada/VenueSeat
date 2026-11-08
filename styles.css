@@ -1,0 +1,589 @@
+
+/* General styles */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6fa;
+  color: #263247;
+  line-height: 1.5;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:focus {
+  outline: 2px solid #2563eb;
+}
+
+h1, h2, p {
+  margin-top: 0;
+}
+
+/* Header */
+
+.site-header {
+  background-color: #17243b;
+  color: white;
+  padding: 18px 25px;
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  font-size: 32px;
+  color: #f0c36d;
+}
+
+.brand h1 {
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
+.brand p {
+  font-size: 12px;
+  color: #b8c5d8;
+  margin-bottom: 0;
+}
+
+.header-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #f0c36d;
+}
+
+/* Main layout */
+
+.main-layout {
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.venue-panel,
+.details-panel,
+.cart-panel {
+  background-color: white;
+  border: 1px solid #e0e5ee;
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: bold;
+  color: #64748b;
+  letter-spacing: 1px;
+}
+
+.panel-heading h2,
+.sidebar-heading h2 {
+  font-size: 22px;
+  margin: 5px 0;
+}
+
+.panel-heading p {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.venue-badge {
+  background-color: #eaf0ff;
+  color: #3159a7;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Ticket price categories */
+
+.price-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: #f4f6fa;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.category-dot,
+.legend-dot {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border-radius: 4px;
+}
+
+.vip {
+  background-color: #e9b44c;
+}
+
+.standard {
+  background-color: #4c91d9;
+}
+
+.economy {
+  background-color: #49ad80;
+}
+
+/* Map navigation */
+
+.map-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.zoom-controls,
+.direction-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.map-toolbar button {
+  background-color: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #263247;
+  font-size: 15px;
+}
+
+.map-toolbar button:hover {
+  background-color: #eaf0ff;
+}
+
+#zoom-level {
+  font-size: 13px;
+  font-weight: bold;
+  min-width: 45px;
+  text-align: center;
+}
+
+#reset-view {
+  background-color: #263b60;
+  color: white;
+}
+
+#reset-view:hover {
+  background-color: #365486;
+}
+
+/* Venue map */
+
+.venue-viewport {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  background-color: #f8faff;
+  border: 1px solid #dce4ef;
+  border-radius: 10px;
+  position: relative;
+}
+
+.venue-map {
+  width: 850px;
+  padding: 30px 20px;
+  margin: auto;
+  text-align: center;
+  transform-origin: center top;
+}
+
+.stage {
+  width: 60%;
+  margin: 0 auto 35px;
+  padding: 12px;
+  background-color: #263b60;
+  color: white;
+  border-radius: 6px;
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+
+.seat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.seat-section {
+  width: 100%;
+}
+
+.section-title {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #475569;
+}
+
+.seat-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.row-label {
+  width: 25px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.seat {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 10px;
+  color: white;
+}
+
+.seat.available.vip {
+  background-color: #e9b44c;
+  color: #263247;
+}
+
+.seat.available.standard {
+  background-color: #4c91d9;
+}
+
+.seat.available.economy {
+  background-color: #49ad80;
+}
+
+.seat.available:hover {
+  outline: 2px solid #263247;
+}
+
+.seat.inspected {
+  background-color: #f59e0b;
+  color: #17243b;
+  outline: 2px solid #17243b;
+}
+
+.seat.in-cart {
+  background-color: #2563eb;
+  color: white;
+}
+
+.seat.unavailable {
+  background-color: #a1a8b3;
+  color: white;
+  cursor: not-allowed;
+}
+
+.entrance-label {
+  margin-top: 30px;
+  color: #94a3b8;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+/* Seat legend */
+
+.seat-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #475569;
+}
+
+.seat-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot.available {
+  background-color: #49ad80;
+}
+
+.legend-dot.inspected {
+  background-color: #f59e0b;
+}
+
+.legend-dot.in-cart {
+  background-color: #2563eb;
+}
+
+.legend-dot.unavailable {
+  background-color: #a1a8b3;
+}
+
+/* Sidebar */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-heading {
+  margin-bottom: 20px;
+}
+
+.seat-details {
+  min-height: 150px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 20px 10px;
+  color: #64748b;
+}
+
+.empty-icon {
+  display: block;
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.empty-state p {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.empty-state small {
+  font-size: 12px;
+}
+
+.seat-info {
+  background-color: #f4f6fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.seat-info p {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.seat-info p:last-child {
+  margin-bottom: 0;
+}
+
+.primary-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 7px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.primary-button:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+/* Selected tickets */
+
+.cart-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-count {
+  background-color: #eaf0ff;
+  color: #2563eb;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.cart-items {
+  min-height: 100px;
+}
+
+.empty-cart {
+  color: #94a3b8;
+  text-align: center;
+  font-size: 13px;
+  padding: 25px 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.cart-item-info {
+  font-size: 13px;
+}
+
+.cart-item-info strong {
+  display: block;
+}
+
+.cart-item-price {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.remove-button {
+  border: none;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 6px 9px;
+  border-radius: 5px;
+}
+
+.remove-button:hover {
+  background-color: #fecaca;
+}
+
+.cart-summary {
+  border-top: 1px solid #e2e8f0;
+  margin-top: 15px;
+  padding-top: 15px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 17px;
+}
+
+.summary-note {
+  margin: 10px 0 0;
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+/* Footer */
+
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* Responsive layout */
+
+@media (min-width: 768px) {
+  .map-toolbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1050px) {
+  .main-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .venue-panel {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sidebar {
+    width: 320px;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    padding: 15px;
+  }
+
+  .header-label {
+    display: none;
+  }
+
+  .main-layout {
+    padding: 0 12px;
+    margin: 15px auto;
+  }
+
+  .venue-panel,
+  .details-panel,
+  .cart-panel {
+    padding: 15px;
+  }
+
+  .panel-heading h2 {
+    font-size: 19px;
+  }
+
+  .venue-badge {
+    font-size: 10px;
+    padding: 6px;
+  }
+
+  .venue-viewport {
+    height: 400px;
+  }
+
+  .direction-controls button {
+    flex: 1;
+  }
+}
