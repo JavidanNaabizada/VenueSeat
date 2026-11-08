@@ -1,6 +1,5 @@
 
 /* Venue data */
-
 const sections = [
   {
     name: "VIP",
@@ -68,7 +67,6 @@ sections.forEach(function(section) {
 });
 
 /* Display the venue */
-
 function createVenue() {
   seatContainer.innerHTML = "";
 
@@ -135,7 +133,6 @@ function createVenue() {
 }
 
 /* Inspect a seat */
-
 function inspectSeat(seatId) {
   const seat = seats.find(function(item) {
     return item.id === seatId;
@@ -164,7 +161,6 @@ function inspectSeat(seatId) {
 }
 
 /* Update the inspected seat color */
-
 function updateSeatColors() {
   const seatButtons = document.querySelectorAll(".seat");
 
@@ -181,7 +177,6 @@ function updateSeatColors() {
 }
 
 /* Add ticket */
-
 function addToCart() {
   if (!selectedSeat) {
     return;
@@ -214,10 +209,10 @@ function addToCart() {
 
   createVenue();
   displayCart();
+  saveCart();
 }
 
 /* Display selected tickets */
-
 function displayCart() {
   cartItems.innerHTML = "";
 
@@ -255,7 +250,6 @@ function displayCart() {
 }
 
 /* Remove a ticket */
-
 function removeTicket(seatId) {
   const ticketIndex = cart.findIndex(function(ticket) {
     return ticket.id === seatId;
@@ -282,13 +276,128 @@ function removeTicket(seatId) {
 
   createVenue();
   displayCart();
+  saveCart();
 }
 
 /* Button events */
-
 addButton.addEventListener("click", addToCart);
 
 /* Start the application */
-
 createVenue();
 displayCart();
+
+
+/* Save and restore tickets */
+function saveCart() {
+  const ticketIds = cart.map(function(ticket) {
+    return ticket.id;
+  });
+
+  localStorage.setItem("venueTickets", JSON.stringify(ticketIds));
+}
+
+function loadCart() {
+  const savedTickets = localStorage.getItem("venueTickets");
+
+  if (!savedTickets) {
+    return;
+  }
+
+  let ticketIds;
+
+  try {
+    ticketIds = JSON.parse(savedTickets);
+  } catch (error) {
+    return;
+  }
+
+  if (!Array.isArray(ticketIds)) {
+    return;
+  }
+
+  ticketIds.forEach(function(id) {
+    const seat = seats.find(function(item) {
+      return item.id === id;
+    });
+
+    if (seat && seat.status === "available") {
+      seat.status = "in-cart";
+      cart.push(seat);
+    }
+  });
+
+  createVenue();
+  displayCart();
+}
+
+/* Map navigation */
+const venueMap = document.getElementById("venue-map");
+const venueViewport = document.getElementById("venue-viewport");
+const zoomLevel = document.getElementById("zoom-level");
+
+let zoom = 1;
+let moveX = 0;
+let moveY = 0;
+
+function updateMap() {
+  venueMap.style.transform =
+    "translate(" + moveX + "px, " + moveY + "px) scale(" + zoom + ")";
+
+  zoomLevel.textContent = Math.round(zoom * 100) + "%";
+}
+
+document.getElementById("zoom-in").addEventListener("click", function() {
+  if (zoom < 1.8) {
+    zoom += 0.2;
+    updateMap();
+  }
+});
+
+document.getElementById("zoom-out").addEventListener("click", function() {
+  if (zoom > 0.6) {
+    zoom -= 0.2;
+    updateMap();
+  }
+});
+
+
+document.getElementById("move-up").addEventListener("click", function() {
+  moveY += 40;
+  updateMap();
+});
+
+document.getElementById("move-down").addEventListener("click", function() {
+  moveY -= 40;
+  updateMap();
+});
+
+document.getElementById("move-left").addEventListener("click", function() {
+  moveX += 40;
+  updateMap();
+});
+
+document.getElementById("move-right").addEventListener("click", function() {
+  moveX -= 40;
+  updateMap();
+});
+
+
+
+document.getElementById("reset-view").addEventListener("click", function() {
+  zoom = 1;
+  moveX = 0;
+  moveY = 0;
+
+  updateMap();
+
+  venueViewport.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "instant"
+  });
+});
+
+
+/* Restore saved tickets */
+loadCart();
+updateMap();
