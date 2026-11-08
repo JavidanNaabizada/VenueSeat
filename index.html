@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive theatre ticket selection system">
+  <title>VenueSeat | Interactive Theatre Ticketing</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">◈</span>
+        <div>
+          <h1>VenueSeat</h1>
+          <p>Interactive Theatre Ticketing</p>
+        </div>
+      </div>
+      <div class="header-label">THEATRE EXPERIENCE</div>
+    </div>
+  </header>
+
+  <main class="main-layout">
+
+    <!-- VENUE MAP -->
+    <section class="venue-panel" aria-labelledby="venue-title">
+      <div class="panel-heading">
+        <div>
+          <span class="eyebrow">EXPLORE THE VENUE</span>
+          <h2 id="venue-title">Choose Your Seat</h2>
+          <p>Select a seat to inspect its details and price.</p>
+        </div>
+        <span class="venue-badge">172 SEATS</span>
+      </div>
+
+      <!-- PRICE CATEGORIES -->
+      <div class="price-categories">
+        <span class="category">
+          <span class="category-dot vip"></span>
+          VIP <strong>50 AZN</strong>
+        </span>
+        <span class="category">
+          <span class="category-dot standard"></span>
+          Standard <strong>30 AZN</strong>
+        </span>
+        <span class="category">
+          <span class="category-dot economy"></span>
+          Economy <strong>15 AZN</strong>
+        </span>
+      </div>
+
+      <!-- MAP NAVIGATION -->
+      <div class="map-toolbar" aria-label="Venue map controls">
+        <div class="zoom-controls">
+          <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+          <span id="zoom-level">100%</span>
+          <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+        </div>
+
+        <div class="direction-controls">
+          <button type="button" id="move-up" aria-label="Move up">↑</button>
+          <button type="button" id="move-down" aria-label="Move down">↓</button>
+          <button type="button" id="move-left" aria-label="Move left">←</button>
+          <button type="button" id="move-right" aria-label="Move right">→</button>
+          <button type="button" id="reset-view">Reset View</button>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE VENUE -->
+      <div class="venue-viewport" id="venue-viewport">
+        <div class="venue-map" id="venue-map">
+
+          <div class="stage">
+            <span>STAGE</span>
+          </div>
+
+          <div id="seat-container" class="seat-container">
+            <!-- JavaScript generates all seats here -->
+          </div>
+
+          <div class="entrance-label">MAIN ENTRANCE</div>
+
+        </div>
+      </div>
+
+      <!-- SEAT STATUS LEGEND -->
+      <div class="seat-legend">
+        <span><i class="legend-dot available"></i> Available</span>
+        <span><i class="legend-dot inspected"></i> Inspected</span>
+        <span><i class="legend-dot in-cart"></i> In Cart</span>
+        <span><i class="legend-dot unavailable"></i> Unavailable</span>
+      </div>
+    </section>
+
+    <!-- SIDE PANEL -->
+    <aside class="sidebar">
+
+      <!-- SEAT INSPECTION -->
+      <section class="details-panel" aria-labelledby="details-title">
+        <div class="sidebar-heading">
+          <span class="eyebrow">SEAT INFORMATION</span>
+          <h2 id="details-title">Seat Details</h2>
+        </div>
+
+        <div id="seat-details" class="seat-details">
+          <div class="empty-state">
+            <span class="empty-icon" aria-hidden="true">⌖</span>
+            <p>No seat selected</p>
+            <small>Click an available seat on the map to view its details.</small>
+          </div>
+        </div>
+
+        <button type="button" id="add-to-cart" class="primary-button" disabled>
+          ADD TO CART
+        </button>
+      </section>
+
+      <!-- SELECTED TICKETS -->
+      <section class="cart-panel" aria-labelledby="cart-title">
+        <div class="sidebar-heading cart-heading">
+          <div>
+            <span class="eyebrow">YOUR SELECTION</span>
+            <h2 id="cart-title">Selected Tickets</h2>
+          </div>
+          <span id="cart-count" class="cart-count">0</span>
+        </div>
+
+        <div id="cart-items" class="cart-items">
+          <p class="empty-cart">No tickets added yet.</p>
+        </div>
+
+        <div class="cart-summary">
+          <div class="total-row">
+            <span>Total</span>
+            <strong id="cart-total">0 AZN</strong>
+          </div>
+          <p class="summary-note">Ticket selection only. No payment required.</p>
+        </div>
+      </section>
+
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>VenueSeat — Web &amp; Mobile I Student Project</p>
+  </footer>
+</body>
+</html>
